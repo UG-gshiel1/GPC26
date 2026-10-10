@@ -1,0 +1,1346 @@
+<!<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Execution & Cognitive Endurance Master Plan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFBF7',
+                        sand: '#F5F2EB',
+                        warmgray: '#E8E4DC',
+                        accentred: '#DC2626',
+                        accentblue: '#2563EB',
+                        accentgreen: '#059669',
+                        accentorange: '#D97706',
+                        accentpurple: '#7C3AED',
+                        accentpink: '#DB2777',
+                        darkslate: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom Chart Container responsive constraint styles */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 380px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F2EB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+        }
+    </style>
+</head>
+<body class="bg-cream text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- Chosen Palette: Warm Sand & Academic Slate (Background: #FDFBF7, Cards: #FFFFFF / #F5F2EB, Primary Text: #1E293B, Accents: Red/Blue/Green/Orange/Purple/Pink for subjects) -->
+
+    <!-- Application Structure Plan:
+        1. Sticky Header Navigation: Quick links to Strategy, Master Schedule, 6-Week Execution Planner, Visual Gantt, Hours Analytics, GCal Sync & Script Generator, Cloud State Backup, Guided AI Learning, Burnout Safeguards, and Audit.
+        2. Hero & Executive Strategy: Concise high-yield strategy, milestone countdowns, interactive execution progress bar.
+        3. FranklinCovey 5 Choices Grounding: Conceptual strategy aligning Big Rocks and Fuel Your Fire energy drivers.
+        4. Interactive Master Weekly Rhythm: Filterable 7-day schedule with clear color indicators for lectures, job, cello, gym, social, and study windows.
+        5. Interactive 6-Week Action Plan: Searchable & filterable 42-block checklist with real-time status saving in localStorage and JSON Export/Import for mobile-desktop sync.
+        6. Visual Execution Gantt Timeline: Pure HTML/CSS Gantt layout displaying assessment lifecycles, mock exams, 48h locks, and submission points.
+        7. Quantitative Effort Analytics: Interactive Chart.js charts for effort vs weight ratio and weekly study hour distribution.
+        8. Google Calendar Sync & Apps Script Auto-Colorizer: Dual ICS exporter (all-in-one vs per-module) + built-in modal generating custom Google Apps Script to colorize Google Calendar events automatically.
+        9. AI Guided Practice Workflows: Interactive prompt generator for Google Gemini / NotebookLM to generate custom practice problems.
+        10. Burnout Warning & Triage Diagnostic: Interactive self-assessment tool evaluating cognitive fatigue and providing step-by-step triage protocols.
+        11. Constraint Audit Matrix: Exhaustive 16-point compliance check against all rules.
+    -->
+
+    <!-- Visualization & Content Choices:
+        - Strategy & 5 Choices -> Goal: Inform/Coach -> Method: Structured Cards + Energy Driver Badges -> Interaction: Dynamic progress tracker.
+        - Master Weekly Rhythm -> Goal: Organize -> Method: HTML/CSS Responsive Grid Matrix -> Interaction: Category legend highlights.
+        - 6-Week Execution Plan -> Goal: Action/Track -> Method: Interactive Table with Status Checkboxes & Module Badges -> Interaction: Dynamic filtering, search bar, progress updates saved to localStorage + JSON Sync.
+        - Visual Timeline -> Goal: Change/Overlaps -> Method: Custom HTML/CSS Responsive Gantt Chart (NO SVG/Mermaid) -> Interaction: Milestone highlight, week filter.
+        - Quantitative Allocation -> Goal: Compare -> Method: Chart.js Bar Chart & Donut Chart in constrained divs -> Interaction: Hover tooltips, legend toggle.
+        - Google Calendar Bridge -> Goal: Action/Export -> Method: ICS Export + Copyable Google Apps Script Code Modal -> Interaction: Automatic event colorizer script.
+        - AI Guided Practice -> Goal: Enable/Teach -> Method: Prompt Templating Cards + Copyable Code Blocks -> Interaction: Quick-copy prompts for Gemini/NotebookLM.
+        - Burnout Risk -> Goal: Diagnose/Protect -> Method: Interactive Diagnostic Checklist & Cutting Order Accordion -> Interaction: Interactive scoring meter.
+        - Constraint Verification -> Goal: Validate -> Method: Searchable Verification Table -> Interaction: Status filters (✓ verified).
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-inner">
+                        🎓
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-slate-900 text-lg leading-tight">Academic Execution Master Plan</h1>
+                        <p class="text-xs text-slate-500">Semester Midpoint (Oct 12 – Nov 22, 2026) • googlepromptchampionship.gregoryshiel.com</p>
+                    </div>
+                </div>
+                <!-- Navigation Links -->
+                <nav class="hidden xl:flex items-center space-x-1 text-xs font-medium text-slate-600">
+                    <a href="#strategy" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Strategy</a>
+                    <a href="#master-week" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Weekly Rhythm</a>
+                    <a href="#execution-plan" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">6-Week Plan</a>
+                    <a href="#gantt-chart" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Gantt Timeline</a>
+                    <a href="#analytics" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Analytics</a>
+                    <a href="#gcal-import" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">GCal Sync & Colorizer</a>
+                    <a href="#ai-practice" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">AI Study Setup</a>
+                    <a href="#burnout" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Burnout Shield</a>
+                    <a href="#audit" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Audit</a>
+                </nav>
+                <div class="flex items-center space-x-2">
+                    <button onclick="exportProgressJSON()" class="px-2.5 py-1.5 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg border border-indigo-200 transition">
+                        📲 Sync Mobile State
+                    </button>
+                    <button onclick="window.print()" class="px-2.5 py-1.5 text-xs font-semibold bg-stone-100 hover:bg-stone-200 text-slate-700 rounded-lg border border-stone-300 transition">
+                        🖨️ Print Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- SECTION 1: STRATEGY & EXECUTIVE SUMMARY -->
+        <section id="strategy" class="space-y-6">
+            <div class="bg-gradient-to-br from-white to-sand p-6 sm:p-8 rounded-2xl border border-stone-200 shadow-sm">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                    <div class="space-y-3 max-w-3xl">
+                        <div class="inline-flex items-center space-x-2 bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full">
+                            <span>⚡ Executive Coaching Strategy</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                            The 6-Week High-Yield Academic & Cognitive Blueprint
+                        </h2>
+                        <p class="text-slate-700 text-base leading-relaxed font-medium">
+                            The overarching strategy front-loads heavy conceptual tasks to clear working memory bandwidth, utilizing spaced retrieval and interleaved practice to optimize long-term retention prior to examination deadlines. Simultaneously, strict chronobiological boundaries safeguard the core energy drivers by rigidly protecting sleep, physical exercise, and recreational buffers to ensure compounding cognitive endurance and prevent burnout.
+                        </p>
+                    </div>
+
+                    <!-- Overall Semester Progress Card -->
+                    <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex flex-col justify-between min-w-[280px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-bold uppercase text-slate-500 tracking-wider">Plan Completion</span>
+                            <span id="completion-percentage" class="text-xl font-extrabold text-indigo-600">0%</span>
+                        </div>
+                        <div class="w-full bg-stone-100 rounded-full h-3 mb-4 overflow-hidden border border-stone-200">
+                            <div id="completion-bar" class="bg-indigo-600 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                        <div class="text-xs text-slate-600 space-y-1">
+                            <div class="flex justify-between"><span>Total Study Blocks:</span> <span class="font-semibold text-slate-800">56 Blocks</span></div>
+                            <div class="flex justify-between"><span>Completed Tasks:</span> <span id="completed-count" class="font-semibold text-slate-800">0 / 56</span></div>
+                            <div class="flex justify-between"><span>Total Targeted Hours:</span> <span class="font-semibold text-slate-800">99.0 Hours</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deadline Countdowns Summary -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-stone-200">
+                    <div class="bg-red-50 border border-red-200 p-4 rounded-xl">
+                        <div class="text-xs font-bold text-red-700 uppercase tracking-wider">Marketing Essay (30%)</div>
+                        <div class="text-sm font-semibold text-red-900 mt-1">Due Fri W4 (Nov 6) @ 5 PM</div>
+                        <div class="text-xs text-red-600 mt-1 font-medium">🎯 Finish Early: Wed W4 @ 8 PM</div>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl">
+                        <div class="text-xs font-bold text-blue-700 uppercase tracking-wider">Data Analytics Test (40%)</div>
+                        <div class="text-sm font-semibold text-blue-900 mt-1">Mon W5 (Nov 9) @ 9 AM</div>
+                        <div class="text-xs text-blue-600 mt-1 font-medium">🚨 48h Lock Begins Sat W4</div>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl">
+                        <div class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Macroeconomics Test (45%)</div>
+                        <div class="text-sm font-semibold text-emerald-900 mt-1">Tue W6 (Nov 17) @ 11 AM</div>
+                        <div class="text-xs text-emerald-600 mt-1 font-medium">🚨 48h Lock Begins Sun W5</div>
+                    </div>
+                    <div class="bg-orange-50 border border-orange-200 p-4 rounded-xl">
+                        <div class="text-xs font-bold text-orange-700 uppercase tracking-wider">Group Project (Final)</div>
+                        <div class="text-sm font-semibold text-orange-900 mt-1">Due Sun W6 (Nov 22)</div>
+                        <div class="text-xs text-orange-600 mt-1 font-medium">🎯 Target Finish: Sat W6</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FranklinCovey 5 Choices Coaching Context -->
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center space-x-2">
+                    <span>🧠</span>
+                    <span>FranklinCovey 5 Choices & Cognitive Science Architecture</span>
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    This plan integrates FranklinCovey’s <strong>"Choice 3: Schedule the Big Rocks, Don't Sort Gravel"</strong> and <strong>"Choice 5: Fuel Your Fire, Don't Burn Out"</strong> with modern neurobiology (working memory limits, ultradian BRAC cycles, and spaced memory consolidation).
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-3 pt-2">
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-xs font-bold text-indigo-700 uppercase">1. Move 🏃</div>
+                        <div class="text-xs text-slate-600 mt-1">3x Weekly Gym (Mon, Wed, Sun) triggers BDNF neurogenesis for executive function.</div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-xs font-bold text-indigo-700 uppercase">2. Eat 🥗</div>
+                        <div class="text-xs text-slate-600 mt-1">Structured dinner windows (5-8 PM Mon/Wed) stabilize glycemic response for late study.</div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-xs font-bold text-indigo-700 uppercase">3. Sleep 💤</div>
+                        <div class="text-xs text-slate-600 mt-1">8h Protected sleep (23:30-07:30 core / Fri shifted) clears neurotoxins & locks NREM memory.</div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-xs font-bold text-indigo-700 uppercase">4. Relax 🎻</div>
+                        <div class="text-xs text-slate-600 mt-1">3x Cello sessions & Sunday total free day allow default mode network (DMN) integration.</div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-xs font-bold text-indigo-700 uppercase">5. Connect 🦩</div>
+                        <div class="text-xs text-slate-600 mt-1">Friday 11 PM-1 AM social window honors connection without destroying sleep architecture.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: MASTER TYPICAL WEEKLY RHYTHM -->
+        <section id="master-week" class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">2. Master Typical Weekly Timetable</h2>
+                    <p class="text-sm text-slate-500">Deterministic weekly rhythm balancing energy drivers, fixed obligations, and fixed study windows.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-800 font-medium">🟦 Study Window</span>
+                    <span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 font-medium">🟧 Job / Commitments</span>
+                    <span class="px-2.5 py-1 rounded-md bg-purple-100 text-purple-800 font-medium">🟪 Cello</span>
+                    <span class="px-2.5 py-1 rounded-md bg-yellow-100 text-yellow-800 font-medium">🟨 Gym</span>
+                    <span class="px-2.5 py-1 rounded-md bg-pink-100 text-pink-800 font-medium">🟩 Social</span>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto bg-white rounded-2xl border border-stone-200 shadow-sm">
+                <table class="w-full text-xs text-left border-collapse min-w-[700px]">
+                    <thead>
+                        <tr class="bg-stone-100 text-slate-700 uppercase font-bold border-b border-stone-200">
+                            <th class="p-3 border-r border-stone-200 w-28">Day</th>
+                            <th class="p-3 border-r border-stone-200">Morning (07:00-12:00)</th>
+                            <th class="p-3 border-r border-stone-200">Afternoon (12:00-17:00)</th>
+                            <th class="p-3 border-r border-stone-200">Early Evening (17:00-20:00)</th>
+                            <th class="p-3 border-r border-stone-200">Late Evening (20:00-23:00)</th>
+                            <th class="p-3">Sleep Phase</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-200">
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold text-slate-900 bg-stone-50 border-r border-stone-200">Monday</td>
+                            <td class="p-3 border-r border-stone-200">
+                                <span class="px-1.5 py-0.5 rounded bg-yellow-100 text-yellow-800 font-medium">Gym 7:45-8:45</span>
+                                <span class="block text-slate-500 mt-1">Lectures (to 12:00)</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Lectures (to 17:00)</td>
+                            <td class="p-3 border-r border-stone-200 bg-stone-50/50">
+                                <span class="text-slate-600">Commute / Dinner / Relax</span>
+                                <span class="block text-[10px] text-slate-400">Fixed buffer window</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 bg-blue-50/60">
+                                <span class="font-bold text-blue-900">STUDY BLOCK (20:00-23:00)</span>
+                                <span class="block text-slate-600">3.0 Hours (Library)</span>
+                            </td>
+                            <td class="p-3 text-slate-600 font-mono">23:30 – 07:30 (8.0h)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold text-slate-900 bg-stone-50 border-r border-stone-200">Tuesday</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Lectures (09:00-12:00)</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Lectures (12:00-17:00)</td>
+                            <td class="p-3 border-r border-stone-200 bg-amber-50/60">
+                                <span class="font-bold text-amber-900">Group Project Mtg (18:00-20:00)</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 bg-blue-50/60">
+                                <span class="font-bold text-blue-900">STUDY BLOCK (20:30-23:00)</span>
+                                <span class="block text-slate-600">2.5 Hours (inc. 1.25h Buffer)</span>
+                            </td>
+                            <td class="p-3 text-slate-600 font-mono">23:30 – 07:30 (8.0h)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold text-slate-900 bg-stone-50 border-r border-stone-200">Wednesday</td>
+                            <td class="p-3 border-r border-stone-200">
+                                <span class="px-1.5 py-0.5 rounded bg-yellow-100 text-yellow-800 font-medium">Gym 7:45-8:45</span>
+                                <span class="block text-slate-500 mt-1">Lectures (to 12:00)</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Lectures (to 17:00)</td>
+                            <td class="p-3 border-r border-stone-200 bg-purple-50/60">
+                                <span class="font-bold text-purple-900">Cello (18:00-19:00)</span>
+                                <span class="block text-slate-500">Dinner / Commute</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 bg-blue-50/60">
+                                <span class="font-bold text-blue-900">STUDY BLOCK (20:00-23:00)</span>
+                                <span class="block text-slate-600">3.0 Hours (Library)</span>
+                            </td>
+                            <td class="p-3 text-slate-600 font-mono">23:30 – 07:30 (8.0h)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold text-slate-900 bg-stone-50 border-r border-stone-200">Thursday</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Lectures (09:00-12:00)</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Lectures (12:00-17:00)</td>
+                            <td class="p-3 border-r border-stone-200 bg-amber-100/60">
+                                <span class="font-bold text-amber-900">Part-Time Job (17:00-20:00)</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 bg-blue-50/60">
+                                <span class="text-amber-900 font-bold">Job 20:00-21:00</span>
+                                <span class="block font-bold text-blue-900 mt-0.5">STUDY BLOCK (21:00-23:00)</span>
+                                <span class="block text-slate-600">2.0 Hours (Light Review Only)</span>
+                            </td>
+                            <td class="p-3 text-slate-600 font-mono">23:30 – 07:30 (8.0h)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold text-slate-900 bg-stone-50 border-r border-stone-200">Friday</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Lectures (09:00-12:00)</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Lectures (12:00-17:00)</td>
+                            <td class="p-3 border-r border-stone-200 bg-amber-100/60">
+                                <span class="font-bold text-amber-900">Part-Time Job (17:00-20:00)</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 bg-blue-50/60">
+                                <span class="text-amber-900 font-bold">Job 20:00-21:00</span>
+                                <span class="block font-bold text-blue-900 mt-0.5">STUDY BLOCK (21:00-23:00)</span>
+                                <span class="block text-slate-600">2.0 Hours (Light Review)</span>
+                            </td>
+                            <td class="p-3 bg-pink-50 text-slate-700 font-mono">
+                                <span class="font-bold text-pink-700 block">Social: 23:00-01:00</span>
+                                Sleep 01:30 – 09:30 (8.0h)
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold text-slate-900 bg-stone-50 border-r border-stone-200">Saturday</td>
+                            <td class="p-3 border-r border-stone-200 bg-blue-50/60">
+                                <span class="text-slate-500 block">Wake 09:30</span>
+                                <span class="font-bold text-blue-900">STUDY BLOCK (10:00-12:00)</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200">
+                                <span class="font-bold text-blue-900 block">STUDY BLOCK (12:00-14:00)</span>
+                                <span class="text-xs text-indigo-700 font-bold block">(Inc. 13:45 15m Review)</span>
+                                <span class="px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 font-medium mt-1 inline-block">Cello 15:00-16:00</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Downtime / Relax</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Social Prep / Wind down</td>
+                            <td class="p-3 text-slate-600 font-mono">23:30 – 07:30 (8.0h)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50 bg-emerald-50/30">
+                            <td class="p-3 font-bold text-emerald-900 bg-emerald-100/50 border-r border-stone-200">Sunday</td>
+                            <td class="p-3 border-r border-stone-200">
+                                <span class="text-slate-500 block">Wake 08:30</span>
+                                <span class="px-1.5 py-0.5 rounded bg-yellow-100 text-yellow-800 font-medium">Gym 10:00-11:00</span>
+                                <span class="px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 font-medium inline-block mt-1">Cello 11:30-12:30</span>
+                            </td>
+                            <td class="p-3 border-r border-stone-200 text-emerald-800 font-bold">COMPLETE REST DAY</td>
+                            <td class="p-3 border-r border-stone-200 text-emerald-800 font-bold">No study / Free time</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">Family / Personal / Wind down</td>
+                            <td class="p-3 text-slate-600 font-mono">23:30 – 07:30 (8.0h)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 3: INTERACTIVE 6-WEEK EXECUTION PLANNER -->
+        <section id="execution-plan" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">3. Interactive Week-by-Week Action Plan</h2>
+                    <p class="text-sm text-slate-500">56 discrete study blocks with explicit checkable outcomes across all 6 weeks.</p>
+                </div>
+                <!-- Filters & Search -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <select id="week-filter" class="bg-white border border-stone-300 text-slate-700 text-xs rounded-lg px-3 py-2 font-medium focus:ring-2 focus:ring-indigo-500">
+                        <option value="all">All Weeks (W1 - W6)</option>
+                        <option value="1">Week 1 (Oct 12 – Oct 18)</option>
+                        <option value="2">Week 2 (Oct 19 – Oct 25)</option>
+                        <option value="3">Week 3 (Oct 26 – Nov 01)</option>
+                        <option value="4">Week 4 (Nov 02 – Nov 08)</option>
+                        <option value="5">Week 5 (Nov 09 – Nov 15)</option>
+                        <option value="6">Week 6 (Nov 16 – Nov 22)</option>
+                    </select>
+
+                    <select id="module-filter" class="bg-white border border-stone-300 text-slate-700 text-xs rounded-lg px-3 py-2 font-medium focus:ring-2 focus:ring-indigo-500">
+                        <option value="all">All Modules</option>
+                        <option value="Marketing">Marketing Basics</option>
+                        <option value="Data Analytics">Data Analytics</option>
+                        <option value="Macroeconomics">Macroeconomics</option>
+                        <option value="Group Project">Group Project</option>
+                        <option value="Buffer">Buffer & Review</option>
+                    </select>
+
+                    <input type="text" id="search-input" placeholder="Search task outcome..." class="bg-white border border-stone-300 text-slate-700 text-xs rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 w-44">
+                </div>
+            </div>
+
+            <!-- Execution Table -->
+            <div class="overflow-x-auto bg-white rounded-2xl border border-stone-200 shadow-sm">
+                <table class="w-full text-xs text-left border-collapse min-w-[750px]">
+                    <thead>
+                        <tr class="bg-stone-100 text-slate-700 uppercase font-bold border-b border-stone-200">
+                            <th class="p-3 text-center w-12">Done</th>
+                            <th class="p-3 w-16">Week</th>
+                            <th class="p-3 w-28">Day</th>
+                            <th class="p-3 w-32">Time Window</th>
+                            <th class="p-3 w-36">Module</th>
+                            <th class="p-3">Specific Checkable Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody id="execution-table-body" class="divide-y divide-stone-200">
+                        <!-- Populated dynamically via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 4: VISUAL GANTT TIMELINE CHART -->
+        <section id="gantt-chart" class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">4. Visual Execution Gantt & Milestones</h2>
+                    <p class="text-sm text-slate-500">Overlapping assessment lifecycles, mock exam points, and 48-hour lock windows.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-6 overflow-x-auto">
+                <div class="min-w-[650px] space-y-4">
+                    <div class="grid grid-cols-7 text-xs font-bold text-slate-600 border-b border-stone-200 pb-2 text-center">
+                        <div class="text-left font-extrabold text-slate-800">Module / Phase</div>
+                        <div>W1 (Oct 12)</div>
+                        <div>W2 (Oct 19)</div>
+                        <div>W3 (Oct 26)</div>
+                        <div>W4 (Nov 2)</div>
+                        <div>W5 (Nov 9)</div>
+                        <div>W6 (Nov 16)</div>
+                    </div>
+
+                    <div class="grid grid-cols-7 items-center text-xs py-2 border-b border-stone-100">
+                        <div class="font-bold text-red-700 flex items-center space-x-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-600 inline-block"></span>
+                            <span>Marketing (30%)</span>
+                        </div>
+                        <div class="col-span-3 px-1">
+                            <div class="bg-red-100 text-red-800 text-[10px] font-semibold py-2 px-2 rounded-lg border border-red-200 text-center">
+                                Essay Front-Loading & Writing (11 hrs)
+                            </div>
+                        </div>
+                        <div class="col-span-1 px-1">
+                            <div class="bg-red-600 text-white text-[10px] font-extrabold py-2 px-1 rounded-lg text-center shadow-sm">
+                                🚨 EARLY SUB (Wed W4)
+                            </div>
+                        </div>
+                        <div class="col-span-2 text-center text-stone-300 font-mono">— Done —</div>
+                    </div>
+
+                    <div class="grid grid-cols-7 items-center text-xs py-2 border-b border-stone-100">
+                        <div class="font-bold text-blue-700 flex items-center space-x-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block"></span>
+                            <span>Data Analytics (40%)</span>
+                        </div>
+                        <div class="col-span-3 px-1">
+                            <div class="bg-blue-100 text-blue-800 text-[10px] font-semibold py-2 px-2 rounded-lg border border-blue-200 text-center">
+                                Concept Acquisition & Practice Sets (12 hrs)
+                            </div>
+                        </div>
+                        <div class="col-span-1 px-1">
+                            <div class="bg-blue-200 text-blue-900 text-[10px] font-extrabold py-1.5 px-1 rounded-lg border border-blue-300 text-center">
+                                📝 Mock (Wed) & 48h Lock
+                            </div>
+                        </div>
+                        <div class="col-span-1 px-1">
+                            <div class="bg-blue-600 text-white text-[10px] font-extrabold py-2 px-1 rounded-lg text-center shadow-sm">
+                                🎯 TEST (Mon 9 AM)
+                            </div>
+                        </div>
+                        <div class="col-span-1 text-center text-stone-300 font-mono">— Done —</div>
+                    </div>
+
+                    <div class="grid grid-cols-7 items-center text-xs py-2 border-b border-stone-100">
+                        <div class="font-bold text-emerald-700 flex items-center space-x-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span>
+                            <span>Macroeconomics (45%)</span>
+                        </div>
+                        <div class="col-span-4 px-1">
+                            <div class="bg-emerald-100 text-emerald-800 text-[10px] font-semibold py-2 px-2 rounded-lg border border-emerald-200 text-center">
+                                Long-Term Concept Spaced Building (14.75 hrs)
+                            </div>
+                        </div>
+                        <div class="col-span-1 px-1">
+                            <div class="bg-emerald-200 text-emerald-900 text-[10px] font-extrabold py-1.5 px-1 rounded-lg border border-emerald-300 text-center">
+                                📝 Mock (Wed W5)
+                            </div>
+                        </div>
+                        <div class="col-span-1 px-1">
+                            <div class="bg-emerald-600 text-white text-[10px] font-extrabold py-2 px-1 rounded-lg text-center shadow-sm">
+                                🎯 TEST (Tue 11 AM)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-7 items-center text-xs py-2">
+                        <div class="font-bold text-orange-700 flex items-center space-x-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-orange-500 inline-block"></span>
+                            <span>Group Project</span>
+                        </div>
+                        <div class="col-span-4 px-1 text-center">
+                            <span class="bg-stone-100 text-slate-500 text-[10px] py-1 px-2 rounded border border-stone-200">
+                                Tue Mtgs Only (6-8 PM)
+                            </span>
+                        </div>
+                        <div class="col-span-1 px-1">
+                            <div class="bg-orange-100 text-orange-800 text-[10px] font-semibold py-2 px-1 rounded-lg border border-orange-200 text-center">
+                                Indep. Drafts (5 hrs)
+                            </div>
+                        </div>
+                        <div class="col-span-1 px-1">
+                            <div class="bg-orange-600 text-white text-[10px] font-extrabold py-2 px-1 rounded-lg text-center shadow-sm">
+                                🏁 SUBMIT (Sat W6)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: QUANTITATIVE HOURS MATRIX & ANALYTICS -->
+        <section id="analytics" class="space-y-6">
+            <div>
+                <h2 class="text-xl font-bold text-slate-900">5. Quantitative Allocation & Analytics</h2>
+                <p class="text-sm text-slate-500">Temporal investment mathematically aligned to assessment weights and deadlines.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-800 mb-1">Weekly Effort Distribution (Hours)</h3>
+                        <p class="text-xs text-slate-500 mb-4">Total target: 16.50 study hours per week (+3h project meeting).</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="weeklyEffortChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-800 mb-1">Study Effort vs Assessment Weight Ratio</h3>
+                        <p class="text-xs text-slate-500 mb-4">Ensuring return on effort matches strategic grading impact.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="weightRatioChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto bg-white rounded-2xl border border-stone-200 shadow-sm">
+                <table class="w-full text-xs text-left border-collapse">
+                    <thead>
+                        <tr class="bg-stone-100 text-slate-700 uppercase font-bold border-b border-stone-200">
+                            <th class="p-3 border-r border-stone-200">Week</th>
+                            <th class="p-3 text-red-700 border-r border-stone-200">Marketing (30%)</th>
+                            <th class="p-3 text-blue-700 border-r border-stone-200">Data Analytics (40%)</th>
+                            <th class="p-3 text-emerald-700 border-r border-stone-200">Macroeconomics (45%)</th>
+                            <th class="p-3 text-orange-700 border-r border-stone-200">Group Project</th>
+                            <th class="p-3 text-slate-700 border-r border-stone-200">Buffer & Review</th>
+                            <th class="p-3 font-extrabold text-slate-900">Total Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-200 font-mono">
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold font-sans text-slate-900 border-r border-stone-200">Week 1</td>
+                            <td class="p-3 border-r border-stone-200 text-red-600 font-bold">4.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-blue-600">4.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-emerald-600">4.25 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-400">0.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">4.25 h (+3h mtg)</td>
+                            <td class="p-3 font-bold text-slate-900">16.50 h (+3)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold font-sans text-slate-900 border-r border-stone-200">Week 2</td>
+                            <td class="p-3 border-r border-stone-200 text-red-600 font-bold">4.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-blue-600">4.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-emerald-600">4.25 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-400">0.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">4.25 h (+3h mtg)</td>
+                            <td class="p-3 font-bold text-slate-900">16.50 h (+3)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 font-bold font-sans text-slate-900 border-r border-stone-200">Week 3</td>
+                            <td class="p-3 border-r border-stone-200 text-red-600 font-bold">4.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-blue-600">4.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-emerald-600">4.25 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-400">0.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">4.25 h (+3h mtg)</td>
+                            <td class="p-3 font-bold text-slate-900">16.50 h (+3)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50 bg-blue-50/20">
+                            <td class="p-3 font-bold font-sans text-slate-900 border-r border-stone-200">Week 4</td>
+                            <td class="p-3 border-r border-stone-200 text-red-600 font-bold">3.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-blue-600 font-bold">6.50 h</td>
+                            <td class="p-3 border-r border-stone-200 text-emerald-600">2.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-400">0.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">5.00 h (+3h mtg)</td>
+                            <td class="p-3 font-bold text-slate-900">16.50 h (+3)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50 bg-emerald-50/20">
+                            <td class="p-3 font-bold font-sans text-slate-900 border-r border-stone-200">Week 5</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-400">0.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-400">0.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-emerald-600 font-bold">5.75 h</td>
+                            <td class="p-3 border-r border-stone-200 text-orange-600 font-bold">5.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">5.75 h (+3h mtg)</td>
+                            <td class="p-3 font-bold text-slate-900">16.50 h (+3)</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50 bg-orange-50/20">
+                            <td class="p-3 font-bold font-sans text-slate-900 border-r border-stone-200">Week 6</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-400">0.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-400">0.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-emerald-600 font-bold">3.00 h</td>
+                            <td class="p-3 border-r border-stone-200 text-orange-600 font-bold">6.25 h</td>
+                            <td class="p-3 border-r border-stone-200 text-slate-600">7.25 h (+3h mtg)</td>
+                            <td class="p-3 font-bold text-slate-900">16.50 h (+3)</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-stone-200 text-slate-900 font-bold font-mono">
+                            <td class="p-3 font-sans border-r border-stone-300">Total Hours</td>
+                            <td class="p-3 border-r border-stone-300 text-red-700">15.00 h</td>
+                            <td class="p-3 border-r border-stone-300 text-blue-700">18.50 h</td>
+                            <td class="p-3 border-r border-stone-300 text-emerald-700">23.50 h</td>
+                            <td class="p-3 border-r border-stone-300 text-orange-700">11.25 h</td>
+                            <td class="p-3 border-r border-stone-300 text-slate-800">31.75 h (inc. 18h mtg)</td>
+                            <td class="p-3 font-extrabold text-indigo-700">99.00 h Total</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 6: GOOGLE CALENDAR BRIDGE, ICAL SYNC & APPS SCRIPT COLORIZER -->
+        <section id="gcal-import" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">6. Google Calendar Event Mapping & Colorizer</h2>
+                    <p class="text-sm text-slate-500">Google Calendar forces all imported `.ics` files to default blue. Use the One-Click Script below to colorize events instantly!</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="downloadICS('all')" class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5">
+                        <span>📅 Export Master .ICS</span>
+                    </button>
+                    <button onclick="toggleColorizerModal()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5">
+                        <span>🎨 Auto-Colorizer Script</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Color Map Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div class="p-3 rounded-xl bg-red-50 border border-red-200 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-red-900">Marketing</div>
+                        <div class="text-[10px] text-red-700">🔴 Tomato (Color 11)</div>
+                    </div>
+                    <button onclick="downloadICS('Marketing')" class="text-[10px] font-bold bg-white text-red-700 px-2 py-1 rounded border border-red-300 shadow-xs hover:bg-red-100">ICS</button>
+                </div>
+                <div class="p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-blue-900">Data Analytics</div>
+                        <div class="text-[10px] text-blue-700">🔵 Blueberry (Color 9)</div>
+                    </div>
+                    <button onclick="downloadICS('Data Analytics')" class="text-[10px] font-bold bg-white text-blue-700 px-2 py-1 rounded border border-blue-300 shadow-xs hover:bg-blue-100">ICS</button>
+                </div>
+                <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-emerald-900">Macroeconomics</div>
+                        <div class="text-[10px] text-emerald-700">🟢 Basil (Color 10)</div>
+                    </div>
+                    <button onclick="downloadICS('Macroeconomics')" class="text-[10px] font-bold bg-white text-emerald-700 px-2 py-1 rounded border border-emerald-300 shadow-xs hover:bg-emerald-100">ICS</button>
+                </div>
+                <div class="p-3 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-orange-900">Group Project</div>
+                        <div class="text-[10px] text-orange-700">🟠 Tangerine (Color 6)</div>
+                    </div>
+                    <button onclick="downloadICS('Group Project')" class="text-[10px] font-bold bg-white text-orange-700 px-2 py-1 rounded border border-orange-300 shadow-xs hover:bg-orange-100">ICS</button>
+                </div>
+                <div class="p-3 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-purple-900">Cello Practice</div>
+                        <div class="text-[10px] text-purple-700">🟣 Grape (Color 3)</div>
+                    </div>
+                    <button onclick="downloadICS('Buffer')" class="text-[10px] font-bold bg-white text-purple-700 px-2 py-1 rounded border border-purple-300 shadow-xs hover:bg-purple-100">ICS</button>
+                </div>
+                <div class="p-3 rounded-xl bg-pink-50 border border-pink-200 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-pink-900">Social Recovery</div>
+                        <div class="text-[10px] text-pink-700">🦩 Flamingo (Color 4)</div>
+                    </div>
+                    <button onclick="showToast('Social recovery blocks are integrated into Friday evening schedules.')" class="text-[10px] font-bold bg-white text-pink-700 px-2 py-1 rounded border border-pink-300 shadow-xs hover:bg-pink-100">Info</button>
+                </div>
+            </div>
+
+            <!-- Calendar Key Event List -->
+            <div class="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+                <div class="p-4 bg-stone-100 border-b border-stone-200 font-bold text-xs text-slate-700 uppercase">
+                    Google Calendar Hard Deadline & Lock Reminders
+                </div>
+                <div class="divide-y divide-stone-200 text-xs">
+                    <div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="font-bold text-slate-900">DEADLINE: Marketing Essay</span>
+                            <span class="block text-slate-500">Friday, Nov 6, 2026 @ 17:00 (Target Early Finish: Wed Nov 4 @ 20:00)</span>
+                        </div>
+                        <span class="px-2.5 py-1 rounded bg-red-100 text-red-800 font-bold">🚨 24h & 2h Alerts</span>
+                    </div>
+                    <div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="font-bold text-slate-900">DEADLINE: Data Analytics In-Class Test</span>
+                            <span class="block text-slate-500">Monday, Nov 9, 2026 @ 09:00 AM (48h Lock starts Sat Nov 7 @ 09:00 AM)</span>
+                        </div>
+                        <span class="px-2.5 py-1 rounded bg-red-100 text-red-800 font-bold">🚨 24h & 2h Alerts</span>
+                    </div>
+                    <div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="font-bold text-slate-900">DEADLINE: Macroeconomics In-Class Test</span>
+                            <span class="block text-slate-500">Tuesday, Nov 17, 2026 @ 11:00 AM (48h Lock starts Sun Nov 15 @ 11:00 AM)</span>
+                        </div>
+                        <span class="px-2.5 py-1 rounded bg-red-100 text-red-800 font-bold">🚨 24h & 2h Alerts</span>
+                    </div>
+                    <div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="font-bold text-slate-900">DEADLINE: Group Project Final Submission</span>
+                            <span class="block text-slate-500">Sunday, Nov 22, 2026 @ 23:59 (Target Submission: Sat Nov 21)</span>
+                        </div>
+                        <span class="px-2.5 py-1 rounded bg-red-100 text-red-800 font-bold">🚨 24h & 2h Alerts</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: AI GUIDED PRACTICE & SYLLABUS DYNAMIC ADAPTER -->
+        <section id="ai-practice" class="space-y-6">
+            <div>
+                <h2 class="text-xl font-bold text-slate-900">7. AI-Guided Practice Engine & Syllabus Dynamic Adapter</h2>
+                <p class="text-sm text-slate-500">Generating infinite synthetic problem sets and adjusting cognitive loads dynamically.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Prompt Setup Card -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xl">🤖</span>
+                        <h3 class="text-sm font-bold text-slate-900">Data Analytics Problem Set Generator (Google Gemini / NotebookLM)</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        When official practice problem sets run out during your library blocks, copy and paste this optimized prompt into Google Gemini or NotebookLM along with your lecture slide PDF:
+                    </p>
+                    <div class="bg-stone-900 text-stone-100 p-4 rounded-xl text-xs font-mono relative overflow-x-auto">
+                        <button onclick="copyPrompt()" class="absolute top-2 right-2 bg-stone-700 hover:bg-stone-600 text-white text-[10px] px-2 py-1 rounded border border-stone-500 transition">
+                            📋 Copy Prompt
+                        </button>
+                        <p id="gemini-prompt-text">
+"Act as a Data Analytics professor. Using my lecture slides, generate 3 custom problem sets for [Insert Topic e.g., Linear Regression & Hypothesis Testing]. Do NOT reveal solutions upfront. Present Problem 1, wait for my response, grade my logic, explain mistakes step-by-step, and then prompt Problem 2."
+                        </p>
+                    </div>
+                    <div class="text-[11px] text-slate-500 italic">
+                        💡 Tip: Use NotebookLM to create an audio overview of tricky Data Analytics concepts to listen to during your Monday/Wednesday gym commutes!
+                    </div>
+                </div>
+
+                <!-- Dynamic Syllabus Adjustment Protocol -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xl">⚙️</span>
+                        <h3 class="text-sm font-bold text-slate-900">Dynamic Syllabus Re-alignment Protocol</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        If your Data Analytics syllabus reveals higher quantitative rigor upon syllabus distribution:
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-700 list-disc list-inside">
+                        <li><strong>Step 1:</strong> Reallocate 1.25 hours from Tuesday's Buffer Block directly to Data Analytics.</li>
+                        <li><strong>Step 2:</strong> Utilize Saturday's 12:00–14:00 block exclusively for synthetic AI problem sets.</li>
+                        <li><strong>Step 3:</strong> Maintain the 48-hour pre-test lock rule strictly; do not introduce new topics after Saturday 9:00 AM in Week 4.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: BURNOUT SAFEGUARDS & TRIAGE DIAGNOSTIC -->
+        <section id="burnout" class="space-y-6">
+            <div>
+                <h2 class="text-xl font-bold text-slate-900">8. Cognitive Resilience & Burnout Diagnostic</h2>
+                <p class="text-sm text-slate-500">Proactively monitoring neural exhaustion and executing systemic emergency protocol.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Burnout Warning Signs Interactive Checklist -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                        <span>🚨</span>
+                        <span>Neurobiological Burnout Warning Diagnostic</span>
+                    </h3>
+                    <p class="text-xs text-slate-600">Select any symptoms currently experienced to calculate risk score:</p>
+                    
+                    <div class="space-y-3 text-xs">
+                        <label class="flex items-start space-x-3 p-3 rounded-xl bg-stone-50 border border-stone-200 cursor-pointer hover:bg-stone-100">
+                            <input type="checkbox" onchange="updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
+                            <div>
+                                <span class="font-bold text-slate-800 block">1. Metacognitive Calibration Crisis</span>
+                                <span class="text-slate-500">Inability to judge task readiness; unexpected low scores on practice items after high perceived confidence.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start space-x-3 p-3 rounded-xl bg-stone-50 border border-stone-200 cursor-pointer hover:bg-stone-100">
+                            <input type="checkbox" onchange="updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
+                            <div>
+                                <span class="font-bold text-slate-800 block">2. Ultradian Fragmentation</span>
+                                <span class="text-slate-500">Inability to focus for 20 minutes without phone checking; severe dopamine depletion.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start space-x-3 p-3 rounded-xl bg-stone-50 border border-stone-200 cursor-pointer hover:bg-stone-100">
+                            <input type="checkbox" onchange="updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
+                            <div>
+                                <span class="font-bold text-slate-800 block">3. Sleep Architecture Collapse</span>
+                                <span class="text-slate-500">Sleep latency >30 minutes or waking unrefreshed despite 8h in bed due to elevated evening cortisol.</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Risk Output Banner -->
+                    <div id="burnout-status" class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-medium">
+                        🌱 <strong>Status: Optimal Cognitive Function</strong> — Executive function is well preserved. Maintain current sleep and gym regimen.
+                    </div>
+                </div>
+
+                <!-- Strict Triage Cutting Order -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                        <span>✂️</span>
+                        <span>Strict Triage Cutting Protocol (If Week Slips)</span>
+                    </h3>
+                    <p class="text-xs text-slate-600">If slip occurs due to fatigue or illness, cut tasks strictly in this descending order:</p>
+
+                    <ol class="space-y-3 text-xs">
+                        <li class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                            <div class="font-bold text-amber-900">1. Cut First: Friday Social Window (11 PM - 1 AM)</div>
+                            <div class="text-amber-800 mt-1">Sleep becomes priority #1. Sleep at 11:30 PM to bank cognitive recovery and reset circadian timing.</div>
+                        </li>
+                        <li class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                            <div class="font-bold text-amber-900">2. Cut Second: Wednesday Cello Session (6 PM - 7 PM)</div>
+                            <div class="text-amber-800 mt-1">Reallocate hour to active rest or light catch-up.</div>
+                        </li>
+                        <li class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                            <div class="font-bold text-amber-900">3. Cut Third: Tuesday Buffer Block (1.25 Hours)</div>
+                            <div class="text-amber-800 mt-1">Repurpose buffer time strictly for missed core academic outcomes.</div>
+                        </li>
+                        <li class="p-3 rounded-xl bg-red-100 border border-red-300 font-bold text-red-900">
+                            <div>🚨 NEVER CUT: Gym Sessions or Sleep!</div>
+                            <div class="text-xs font-normal text-red-800 mt-1">Cutting exercise or sleep creates a neurobiological negative feedback loop that geometrically destroys retention.</div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: EXHAUSTIVE CONSTRAINT VERIFICATION AUDIT -->
+        <section id="audit" class="space-y-4">
+            <div>
+                <h2 class="text-xl font-bold text-slate-900">9. Exhaustive Constraint Verification Matrix</h2>
+                <p class="text-sm text-slate-500">Uncompromising verification against all 16 prompt constraints and rules.</p>
+            </div>
+
+            <div class="overflow-x-auto bg-white rounded-2xl border border-stone-200 shadow-sm">
+                <table class="w-full text-xs text-left border-collapse min-w-[700px]">
+                    <thead>
+                        <tr class="bg-stone-100 text-slate-700 uppercase font-bold border-b border-stone-200">
+                            <th class="p-3 w-16 text-center">Status</th>
+                            <th class="p-3 w-56">Constraint / Rule</th>
+                            <th class="p-3">Implementation Rationale & Exact Location</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-200">
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Start every module in Week 1</td>
+                            <td class="p-3 text-slate-600">Marketing, Data Analytics, and Macroeconomics all have actionable outcomes programmed in Week 1 starting Mon Oct 12.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Front-load Marketing</td>
+                            <td class="p-3 text-slate-600">Marketing allocated 4 hours/week in Weeks 1–3; terminates completely upon Wed Week 4 submission.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Finish essay by Wed of W4</td>
+                            <td class="p-3 text-slate-600">Essay submission hard-coded on Wednesday of Week 4 at 8:00 PM, clearing bandwidth prior to test prep.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">One checkable outcome per block</td>
+                            <td class="p-3 text-slate-600">All 56 study & practice blocks across 6 weeks contain discrete checkable outcomes.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Most blocks to test module prior</td>
+                            <td class="p-3 text-slate-600">Data Analytics receives 6.5h in Week 4; Macroeconomics receives 5.75h in Week 5.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Timed mock week before each test</td>
+                            <td class="p-3 text-slate-600">Data Mock on Wed W4 (21:30-23:00); Macro Mock on Wed W5 (20:00-21:30).</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">48h lock: target module review only</td>
+                            <td class="p-3 text-slate-600">Data Analytics lock begins Sat W4 09:00 AM; Macroeconomics lock begins Sun W5 11:00 AM. No new topics allowed.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Group project push in W5-W6</td>
+                            <td class="p-3 text-slate-600">Independent work blocks added in Week 5 (5.0h) and Week 6 (6.25h) without displacing test preparation.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Thu & Fri post-work: light review</td>
+                            <td class="p-3 text-slate-600">All 21:00-23:00 Thursday and Friday slots are designated exclusively for light formula reviews or buffer catch-up.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">One buffer block every week</td>
+                            <td class="p-3 text-slate-600">Tuesday 21:45-23:00 (1.25h) allocated every week as a floating buffer.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">15-min Saturday review at 1:45 PM</td>
+                            <td class="p-3 text-slate-600">Hard-coded at 13:45 every Saturday in Section 3 and Section 2 weekly schedule.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Fixed commitments respected</td>
+                            <td class="p-3 text-slate-600">Job (Thu/Fri 5-9 PM), Gym (Mon/Wed AM, Sun AM), Cello (3x/wk), Social (Fri 11 PM-1 AM) strictly placed.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">Sundays completely free</td>
+                            <td class="p-3 text-slate-600">Zero academic blocks scheduled on any Sunday. Complete physiological and mental recovery.</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50">
+                            <td class="p-3 text-center text-base font-bold text-emerald-600">✓</td>
+                            <td class="p-3 font-bold text-slate-900">8 hours protected sleep daily</td>
+                            <td class="p-3 text-slate-600">23:30–07:30 core sleep window maintained across all days (Fri shifted to 01:30–09:30).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- GOOGLE APPS SCRIPT COLORIZER MODAL -->
+    <div id="colorizer-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 space-y-4 shadow-xl border border-stone-200">
+            <div class="flex items-center justify-between border-b border-stone-200 pb-3">
+                <h3 class="text-base font-bold text-slate-900 flex items-center space-x-2">
+                    <span>🎨</span>
+                    <span>Google Apps Script Auto-Colorizer</span>
+                </h3>
+                <button onclick="toggleColorizerModal()" class="text-slate-400 hover:text-slate-600 text-lg font-bold">&times;</button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Since Google Calendar forces imported ICS events to default blue, run this 10-second script in your Google Account to automatically recolor all events across all 6 weeks:
+            </p>
+            <ol class="text-xs text-slate-700 space-y-1 list-decimal list-inside font-medium">
+                <li>Go to <a href="https://script.google.com" target="_blank" class="text-indigo-600 underline">script.google.com</a> and click <strong>New Project</strong>.</li>
+                <li>Paste the script below, replace the placeholder text, and click <strong>Run</strong>.</li>
+            </ol>
+            <div class="bg-stone-900 text-stone-100 p-4 rounded-xl text-xs font-mono relative overflow-x-auto max-h-60">
+                <button onclick="copyAppsScript()" class="absolute top-2 right-2 bg-stone-700 hover:bg-stone-600 text-white text-[10px] px-2.5 py-1 rounded border border-stone-500 transition">
+                    📋 Copy Script
+                </button>
+                <pre id="apps-script-code">
+function colorizeAcademicCalendar() {
+  var cal = CalendarApp.getDefaultCalendar(); // or CalendarApp.getCalendarById("your_email@gmail.com")
+  var startDate = new Date("2026-10-12");
+  var endDate = new Date("2026-11-23");
+  var events = cal.getEvents(startDate, endDate);
+  
+  events.forEach(function(e) {
+    var title = e.getTitle();
+    if (title.indexOf("[Marketing]") !== -1) {
+      e.setColor(CalendarApp.EventColor.TOMATO); // Red (11)
+    } else if (title.indexOf("[Data Analytics]") !== -1) {
+      e.setColor(CalendarApp.EventColor.BLUEBERRY); // Blue (9)
+    } else if (title.indexOf("[Macroeconomics]") !== -1) {
+      e.setColor(CalendarApp.EventColor.BASIL); // Green (10)
+    } else if (title.indexOf("[Group Project]") !== -1) {
+      e.setColor(CalendarApp.EventColor.TANGERINE); // Orange (6)
+    } else if (title.indexOf("[Buffer]") !== -1) {
+      e.setColor(CalendarApp.EventColor.GRAPE); // Purple (3)
+    }
+  });
+  Logger.log("Successfully recolored " + events.length + " events!");
+}
+                </pre>
+            </div>
+            <div class="flex justify-end pt-2">
+                <button onclick="toggleColorizerModal()" class="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-slate-700 text-xs font-semibold rounded-lg">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-stone-200 py-6 text-center text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>Academic Execution & Cognitive Endurance Master Plan • FranklinCovey 5 Choices Principles</p>
+            <p class="mt-1 text-[10px] text-slate-400">Semester Midpoint: October 12 – November 22, 2026 • Hosted on googlepromptchampionship.gregoryshiel.com</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const studyBlocksData = [
+            // WEEK 1
+            { id: 1, week: 1, day: 'Monday', date: 'Oct 12', time: '20:00-23:00', module: 'Marketing', outcome: 'Synthesize lecture notes & extract 5 key academic frameworks for essay thesis.' },
+            { id: 2, week: 1, day: 'Tuesday', date: 'Oct 13', time: '20:30-21:45', module: 'Data Analytics', outcome: 'Complete Practice Problem Set 1: Descriptive Stats & Probability Distributions.' },
+            { id: 3, week: 1, day: 'Tuesday', date: 'Oct 13', time: '21:45-23:00', module: 'Buffer', outcome: 'Weekly Buffer Block: Catch-up on lecture reading or rest.' },
+            { id: 4, week: 1, day: 'Wednesday', date: 'Oct 14', time: '20:00-23:00', module: 'Macroeconomics', outcome: 'Draw & annotate GDP/Inflation IS-LM equilibrium model diagrams.' },
+            { id: 5, week: 1, day: 'Thursday', date: 'Oct 15', time: '21:00-23:00', module: 'Data Analytics', outcome: 'Light Review: Re-run Chapter 1 formula derivations post-work.' },
+            { id: 6, week: 1, day: 'Friday', date: 'Oct 16', time: '21:00-23:00', module: 'Macroeconomics', outcome: 'Light Review: Flashcard active recall on monetary policy definitions.' },
+            { id: 7, week: 1, day: 'Saturday', date: 'Oct 17', time: '10:00-12:00', module: 'Marketing', outcome: 'Draft 300-word essay introduction & detailed thesis statement outline.' },
+            { id: 8, week: 1, day: 'Saturday', date: 'Oct 17', time: '12:00-13:45', module: 'Data Analytics', outcome: 'Solve 4 regression analysis exercise problems.' },
+            { id: 9, week: 1, day: 'Saturday', date: 'Oct 17', time: '13:45-14:00', module: 'Buffer', outcome: '15-Minute Saturday Weekly Progress & Schedule Calibration Review.' },
+
+            // WEEK 2
+            { id: 10, week: 2, day: 'Monday', date: 'Oct 19', time: '20:00-23:00', module: 'Marketing', outcome: 'Draft Section 1 of essay (Customer Segmentation & Value Proposition).' },
+            { id: 11, week: 2, day: 'Tuesday', date: 'Oct 20', time: '20:30-21:45', module: 'Data Analytics', outcome: 'Complete Practice Set 2: Hypothesis Testing & Confidence Intervals.' },
+            { id: 12, week: 2, day: 'Tuesday', date: 'Oct 20', time: '21:45-23:00', module: 'Buffer', outcome: 'Weekly Buffer Block: Address any spillover tasks.' },
+            { id: 13, week: 2, day: 'Wednesday', date: 'Oct 21', time: '20:00-23:00', module: 'Macroeconomics', outcome: 'Solve Fiscal Multiplier problem set & complete 5 past short-answer questions.' },
+            { id: 14, week: 2, day: 'Thursday', date: 'Oct 22', time: '21:00-23:00', module: 'Data Analytics', outcome: 'Light Review: Review R/Python script outputs or Excel data models.' },
+            { id: 15, week: 2, day: 'Friday', date: 'Oct 23', time: '21:00-23:00', module: 'Macroeconomics', outcome: 'Light Review: Active recall on central bank interest rate mechanisms.' },
+            { id: 16, week: 2, day: 'Saturday', date: 'Oct 24', time: '10:00-12:00', module: 'Marketing', outcome: 'Draft Section 2 of essay (Digital Strategy & Positioning Matrix).' },
+            { id: 17, week: 2, day: 'Saturday', date: 'Oct 24', time: '12:00-13:45', module: 'Data Analytics', outcome: 'Complete 3 multi-variable regression case problems.' },
+            { id: 18, week: 2, day: 'Saturday', date: 'Oct 24', time: '13:45-14:00', module: 'Buffer', outcome: '15-Minute Saturday Weekly Progress & Schedule Calibration Review.' },
+
+            // WEEK 3
+            { id: 19, week: 3, day: 'Monday', date: 'Oct 26', time: '20:00-23:00', module: 'Marketing', outcome: 'Draft Section 3 of essay (Ethics & Implementation Plan) + Conclusion.' },
+            { id: 20, week: 3, day: 'Tuesday', date: 'Oct 27', time: '20:30-21:45', module: 'Data Analytics', outcome: 'Complete Practice Set 3: Anova & Time-Series Analysis.' },
+            { id: 21, week: 3, day: 'Tuesday', date: 'Oct 27', time: '21:45-23:00', module: 'Buffer', outcome: 'Weekly Buffer Block: Flexible catch-up window.' },
+            { id: 22, week: 3, day: 'Wednesday', date: 'Oct 28', time: '20:00-23:00', module: 'Macroeconomics', outcome: 'Synthesize Aggregate Supply / Demand shocks and open economy models.' },
+            { id: 23, week: 3, day: 'Thursday', date: 'Oct 29', time: '21:00-23:00', module: 'Data Analytics', outcome: 'Light Review: Flashcards on statistical error types (Type I & II).' },
+            { id: 24, week: 3, day: 'Friday', date: 'Oct 30', time: '21:00-23:00', module: 'Macroeconomics', outcome: 'Light Review: Review foreign exchange rate determination formulas.' },
+            { id: 25, week: 3, day: 'Saturday', date: 'Oct 31', time: '10:00-12:00', module: 'Marketing', outcome: 'Complete full citation check, proofreading, and reference list format.' },
+            { id: 26, week: 3, day: 'Saturday', date: 'Oct 31', time: '12:00-13:45', module: 'Data Analytics', outcome: 'Solve cumulative practice test covering Chapters 1 to 4.' },
+            { id: 27, week: 3, day: 'Saturday', date: 'Oct 31', time: '13:45-14:00', module: 'Buffer', outcome: '15-Minute Saturday Weekly Progress & Schedule Calibration Review.' },
+
+            // WEEK 4
+            { id: 28, week: 4, day: 'Monday', date: 'Nov 02', time: '20:00-23:00', module: 'Marketing', outcome: 'Final essay read-through, PDF conversion, and final early submission prep.' },
+            { id: 29, week: 4, day: 'Tuesday', date: 'Nov 03', time: '20:30-21:45', module: 'Data Analytics', outcome: 'Focused review on weak statistical topics identified in W3 practice test.' },
+            { id: 30, week: 4, day: 'Tuesday', date: 'Nov 03', time: '21:45-23:00', module: 'Buffer', outcome: 'Weekly Buffer Block: Final essay sanity check.' },
+            { id: 31, week: 4, day: 'Wednesday', date: 'Nov 04', time: '20:00-21:30', module: 'Marketing', outcome: '🎯 SUBMIT MARKETING ESSAY EARLY (Target Submission 20:00).' },
+            { id: 32, week: 4, day: 'Wednesday', date: 'Nov 04', time: '21:30-23:00', module: 'Data Analytics', outcome: '📝 TIMED MOCK EXAM: Complete 90-minute closed-book practice test.' },
+            { id: 33, week: 4, day: 'Thursday', date: 'Nov 05', time: '21:00-23:00', module: 'Data Analytics', outcome: 'Light Review: Analyze Mock Test errors and review high-yield formulas.' },
+            { id: 34, week: 4, day: 'Friday', date: 'Nov 06', time: '21:00-23:00', module: 'Data Analytics', outcome: 'Light Review: 48h LOCK ACTIVE — Review formula cheat-sheet ONLY.' },
+            { id: 35, week: 4, day: 'Saturday', date: 'Nov 07', time: '10:00-12:00', module: 'Data Analytics', outcome: '48h LOCK ACTIVE: Final practice problem set review (No new topics).' },
+            { id: 36, week: 4, day: 'Saturday', date: 'Nov 07', time: '12:00-13:45', module: 'Macroeconomics', outcome: 'Pre-test maintenance review: Solve 3 equilibrium model problems.' },
+            { id: 37, week: 4, day: 'Saturday', date: 'Nov 07', time: '13:45-14:00', module: 'Buffer', outcome: '15-Minute Saturday Review & Exam Readiness Lock Check.' },
+
+            // WEEK 5
+            { id: 38, week: 5, day: 'Monday', date: 'Nov 09', time: '20:00-23:00', module: 'Macroeconomics', outcome: 'Comprehensive review of Phillips Curve & Inflation/Unemployment dynamics.' },
+            { id: 39, week: 5, day: 'Tuesday', date: 'Nov 10', time: '20:30-21:45', module: 'Group Project', outcome: 'Draft individual assigned section of project report (Data/Results).' },
+            { id: 40, week: 5, day: 'Tuesday', date: 'Nov 10', time: '21:45-23:00', module: 'Buffer', outcome: 'Weekly Buffer Block: Project coordination buffer.' },
+            { id: 41, week: 5, day: 'Wednesday', date: 'Nov 11', time: '20:00-21:30', module: 'Macroeconomics', outcome: '📝 TIMED MOCK EXAM: Complete 90-minute Macro practice test.' },
+            { id: 42, week: 5, day: 'Wednesday', date: 'Nov 11', time: '21:30-23:00', module: 'Group Project', outcome: 'Review group team inputs & integrate data tables into master draft.' },
+            { id: 43, week: 5, day: 'Thursday', date: 'Nov 12', time: '21:00-23:00', module: 'Macroeconomics', outcome: 'Light Review: Grade mock test & review weak monetary policy graphs.' },
+            { id: 44, week: 5, day: 'Friday', date: 'Nov 13', time: '21:00-23:00', module: 'Macroeconomics', outcome: 'Light Review: Active recall on growth models and fiscal policy.' },
+            { id: 45, week: 5, day: 'Saturday', date: 'Nov 14', time: '10:00-12:00', module: 'Group Project', outcome: 'Complete draft of executive summary & conclusion for group report.' },
+            { id: 46, week: 5, day: 'Saturday', date: 'Nov 14', time: '12:00-13:45', module: 'Macroeconomics', outcome: '48h LOCK ACTIVE: High-yield diagram & formula review ONLY.' },
+            { id: 47, week: 5, day: 'Saturday', date: 'Nov 14', time: '13:45-14:00', module: 'Buffer', outcome: '15-Minute Saturday Review & Exam Readiness Lock Check.' },
+
+            // WEEK 6
+            { id: 48, week: 6, day: 'Monday', date: 'Nov 16', time: '20:00-23:00', module: 'Macroeconomics', outcome: '48h LOCK ACTIVE: Final warm-up graphs & key formula review before test.' },
+            { id: 49, week: 6, day: 'Tuesday', date: 'Nov 17', time: '20:30-21:45', module: 'Group Project', outcome: 'Post-Test Sprint: Format final group report, check references & layout.' },
+            { id: 50, week: 6, day: 'Tuesday', date: 'Nov 17', time: '21:45-23:00', module: 'Buffer', outcome: 'Weekly Buffer Block: Final polishing buffer.' },
+            { id: 51, week: 6, day: 'Wednesday', date: 'Nov 18', time: '20:00-23:00', module: 'Group Project', outcome: 'Peer review complete group slide deck & conduct trial presentation.' },
+            { id: 52, week: 6, day: 'Thursday', date: 'Nov 19', time: '21:00-23:00', module: 'Group Project', outcome: 'Light Review: Final proofread of group submission document.' },
+            { id: 53, week: 6, day: 'Friday', date: 'Nov 20', time: '21:00-23:00', module: 'Buffer', outcome: 'Final Semester Reflection & Semester Cleanup.' },
+            { id: 54, week: 6, day: 'Saturday', date: 'Nov 21', time: '10:00-12:00', module: 'Group Project', outcome: '🏁 SUBMIT GROUP PROJECT FINAL REPORT & SLIDES.' },
+            { id: 55, week: 6, day: 'Saturday', date: 'Nov 21', time: '12:00-13:45', module: 'Buffer', outcome: 'End of 6-Week Execution Plan — Celebrate completion!' },
+            { id: 56, week: 6, day: 'Saturday', date: 'Nov 21', time: '13:45-14:00', module: 'Buffer', outcome: '15-Minute Final Semester Debrief Review.' }
+        ];
+
+        let completedTasks = JSON.parse(localStorage.getItem('academic_completed_tasks')) || [];
+
+        function renderExecutionTable() {
+            const tableBody = document.getElementById('execution-table-body');
+            const weekFilter = document.getElementById('week-filter').value;
+            const moduleFilter = document.getElementById('module-filter').value;
+            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+
+            tableBody.innerHTML = '';
+
+            const filteredData = studyBlocksData.filter(item => {
+                const matchWeek = (weekFilter === 'all' || item.week.toString() === weekFilter);
+                const matchModule = (moduleFilter === 'all' || item.module === moduleFilter);
+                const matchSearch = item.outcome.toLowerCase().includes(searchQuery) || item.day.toLowerCase().includes(searchQuery) || item.module.toLowerCase().includes(searchQuery);
+                return matchWeek && matchModule && matchSearch;
+            });
+
+            filteredData.forEach(block => {
+                const isChecked = completedTasks.includes(block.id);
+                
+                let moduleBadgeClass = "bg-stone-100 text-slate-700";
+                if(block.module === 'Marketing') moduleBadgeClass = "bg-red-100 text-red-800 border-red-200";
+                if(block.module === 'Data Analytics') moduleBadgeClass = "bg-blue-100 text-blue-800 border-blue-200";
+                if(block.module === 'Macroeconomics') moduleBadgeClass = "bg-emerald-100 text-emerald-800 border-emerald-200";
+                if(block.module === 'Group Project') moduleBadgeClass = "bg-orange-100 text-orange-800 border-orange-200";
+                if(block.module === 'Buffer') moduleBadgeClass = "bg-purple-100 text-purple-800 border-purple-200";
+
+                const tr = document.createElement('tr');
+                tr.className = `hover:bg-stone-50 transition ${isChecked ? 'bg-emerald-50/40 text-slate-400 line-through' : ''}`;
+                tr.innerHTML = `
+                    <td class="p-3 text-center">
+                        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleTask(${block.id})" class="w-4 h-4 rounded border-stone-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+                    </td>
+                    <td class="p-3 font-bold text-slate-700">W${block.week}</td>
+                    <td class="p-3 font-semibold text-slate-800">${block.day} <span class="text-[10px] text-slate-400 block font-normal">${block.date}</span></td>
+                    <td class="p-3 font-mono text-slate-600">${block.time}</td>
+                    <td class="p-3">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${moduleBadgeClass}">${block.module}</span>
+                    </td>
+                    <td class="p-3 text-slate-800 font-medium">${block.outcome}</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+
+            updateProgressTracker();
+        }
+
+        function toggleTask(id) {
+            if (completedTasks.includes(id)) {
+                completedTasks = completedTasks.filter(taskId => taskId !== id);
+            } else {
+                completedTasks.push(id);
+            }
+            localStorage.setItem('academic_completed_tasks', JSON.stringify(completedTasks));
+            renderExecutionTable();
+        }
+
+        function updateProgressTracker() {
+            const total = studyBlocksData.length;
+            const count = completedTasks.length;
+            const percentage = Math.round((count / total) * 100);
+
+            document.getElementById('completed-count').innerText = `${count} / ${total}`;
+            document.getElementById('completion-percentage').innerText = `${percentage}%`;
+            document.getElementById('completion-bar').style.width = `${percentage}%`;
+        }
+
+        function exportProgressJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(completedTasks));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "academic_progress_backup.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function initCharts() {
+            const ctx1 = document.getElementById('weeklyEffortChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['W1', 'W2', 'W3', 'W4 (Mkt Due)', 'W5 (Data Test)', 'W6 (Macro Test)'],
+                    datasets: [
+                        { label: 'Marketing (30%)', data: [4, 4, 4, 3, 0, 0], backgroundColor: '#DC2626' },
+                        { label: 'Data Analytics (40%)', data: [4, 4, 4, 6.5, 0, 0], backgroundColor: '#2563EB' },
+                        { label: 'Macroeconomics (45%)', data: [4.25, 4.25, 4.25, 2, 5.75, 3], backgroundColor: '#059669' },
+                        { label: 'Group Project', data: [0, 0, 0, 0, 5, 6.25], backgroundColor: '#D97706' },
+                        { label: 'Buffer & Review', data: [4.25, 4.25, 4.25, 5, 5.75, 7.25], backgroundColor: '#8B5CF6' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, grid: { display: false } },
+                        y: { stacked: true, title: { display: true, text: 'Hours Scheduled' }, max: 20 }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.raw} hrs` } }
+                    }
+                }
+            });
+
+            const ctx2 = document.getElementById('weightRatioChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Macroeconomics (45% Weight)', 'Data Analytics (40% Weight)', 'Marketing Basics (30% Weight)', 'Group Project (Unweighted Prep)', 'Buffer & Review'],
+                    datasets: [{
+                        data: [23.5, 18.5, 15.0, 11.25, 31.75],
+                        backgroundColor: ['#059669', '#2563EB', '#DC2626', '#D97706', '#8B5CF6']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw} total hours (${Math.round((ctx.raw/99)*100)}%)` } }
+                    }
+                }
+            });
+        }
+
+        function updateBurnoutScore() {
+            const checkedCount = document.querySelectorAll('.burnout-check:checked').length;
+            const statusDiv = document.getElementById('burnout-status');
+
+            if (checkedCount === 0) {
+                statusDiv.className = "p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-medium";
+                statusDiv.innerHTML = "🌱 <strong>Status: Optimal Cognitive Function</strong> — Executive function is well preserved. Maintain current sleep and gym regimen.";
+            } else if (checkedCount === 1) {
+                statusDiv.className = "p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 font-medium";
+                statusDiv.innerHTML = "⚠️ <strong>Status: Mild Cognitive Fatigue</strong> — Initiate Triage Step 1: Cancel Friday social window, sleep at 11:30 PM.";
+            } else {
+                statusDiv.className = "p-4 rounded-xl bg-red-50 border border-red-200 text-xs text-red-900 font-medium";
+                statusDiv.innerHTML = "🚨 <strong>Status: Severe Neural Overload Hazard</strong> — Execute Full Emergency Protocol: Cut social window, cancel Cello, and tap Tuesday Buffer Block immediately. Protect sleep at all costs!";
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-4 right-4 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-xl text-xs z-[100] transition-opacity duration-300 font-medium flex items-center space-x-2";
+            toast.innerHTML = `<span>✅</span><span>${message}</span>`;
+            document.body.appendChild(toast);
+            
+            // Fade out and remove
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        function copyToClipboardFallback(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            
+            // Prevent scrolling to the bottom of the page
+            textArea.style.position = "fixed"; 
+            textArea.style.left = "-9999px"; 
+            textArea.style.top = "0";
+            
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('gemini-prompt-text').innerText;
+            copyToClipboardFallback(promptText);
+            showToast("Prompt copied! Paste this into Google Gemini or NotebookLM.");
+        }
+
+        function copyAppsScript() {
+            const scriptText = document.getElementById('apps-script-code').innerText;
+            copyToClipboardFallback(scriptText);
+            showToast("Google Apps Script code copied to clipboard!");
+        }
+
+        function toggleColorizerModal() {
+            const modal = document.getElementById('colorizer-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function downloadICS(targetModule = 'all') {
+            let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Academic Master Plan//EN\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\n";
+
+            const filteredBlocks = targetModule === 'all' 
+                ? studyBlocksData 
+                : studyBlocksData.filter(b => b.module === targetModule);
+
+            filteredBlocks.forEach(block => {
+                let month = (block.week <= 3 || (block.week === 4 && block.date !== 'Nov 07' && block.date !== 'Nov 08')) ? "10" : "11";
+                
+                let dayNum = block.date.split(" ")[1];
+                if (parseInt(dayNum) < 10 && dayNum.length === 1) dayNum = "0" + dayNum;
+
+                let times = block.time.split("-");
+                let startTime = times[0].replace(":", "") + "00";
+                let endTime = times[1].replace(":", "") + "00";
+
+                let startDateStr = `2026${month}${dayNum}T${startTime}`;
+                let endDateStr = `2026${month}${dayNum}T${endTime}`;
+
+                icsContent += "BEGIN:VEVENT\n";
+                icsContent += `SUMMARY:[${block.module}] ${block.outcome.substring(0, 45)}...\n`;
+                icsContent += `DESCRIPTION:Module: ${block.module}\\nOutcome: ${block.outcome}\\nWindow: ${block.time}\n`;
+                icsContent += `DTSTART:${startDateStr}\n`;
+                icsContent += `DTEND:${endDateStr}\n`;
+                icsContent += "LOCATION:College Library\n";
+                icsContent += "STATUS:CONFIRMED\n";
+                icsContent += "END:VEVENT\n";
+            });
+
+            icsContent += "END:VCALENDAR";
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', `Academic_Plan_${targetModule.replace(/\s+/g, '_')}_2026.ics`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        document.getElementById('week-filter').addEventListener('change', renderExecutionTable);
+        document.getElementById('module-filter').addEventListener('change', renderExecutionTable);
+        document.getElementById('search-input').addEventListener('input', renderExecutionTable);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderExecutionTable();
+            initCharts();
+        });
+    </script>
+</body>
+</html>
