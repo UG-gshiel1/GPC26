@@ -1,10 +1,9 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Execution & Cognitive Endurance Master Plan</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,7 +28,6 @@
             }
         }
     </script>
-    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* Custom Chart Container responsive constraint styles */
@@ -70,37 +68,6 @@
 </head>
 <body class="bg-cream text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
 
-    <!-- Chosen Palette: Warm Sand & Academic Slate (Background: #FDFBF7, Cards: #FFFFFF / #F5F2EB, Primary Text: #1E293B, Accents: Red/Blue/Green/Orange/Purple/Pink for subjects) -->
-
-    <!-- Application Structure Plan:
-        1. Sticky Header Navigation: Quick links to Strategy, Master Schedule, 6-Week Execution Planner, Visual Gantt, Hours Analytics, GCal Sync & Script Generator, Cloud State Backup, Guided AI Learning, Burnout Safeguards, and Audit.
-        2. Hero & Executive Strategy: Concise high-yield strategy, milestone countdowns, interactive execution progress bar.
-        3. FranklinCovey 5 Choices Grounding: Conceptual strategy aligning Big Rocks and Fuel Your Fire energy drivers.
-        4. Interactive Master Weekly Rhythm: Filterable 7-day schedule with clear color indicators for lectures, job, cello, gym, social, and study windows.
-        5. Interactive 6-Week Action Plan: Searchable & filterable 42-block checklist with real-time status saving in localStorage and JSON Export/Import for mobile-desktop sync.
-        6. Visual Execution Gantt Timeline: Pure HTML/CSS Gantt layout displaying assessment lifecycles, mock exams, 48h locks, and submission points.
-        7. Quantitative Effort Analytics: Interactive Chart.js charts for effort vs weight ratio and weekly study hour distribution.
-        8. Google Calendar Sync & Apps Script Auto-Colorizer: Dual ICS exporter (all-in-one vs per-module) + built-in modal generating custom Google Apps Script to colorize Google Calendar events automatically.
-        9. AI Guided Practice Workflows: Interactive prompt generator for Google Gemini / NotebookLM to generate custom practice problems.
-        10. Burnout Warning & Triage Diagnostic: Interactive self-assessment tool evaluating cognitive fatigue and providing step-by-step triage protocols.
-        11. Constraint Audit Matrix: Exhaustive 16-point compliance check against all rules.
-    -->
-
-    <!-- Visualization & Content Choices:
-        - Strategy & 5 Choices -> Goal: Inform/Coach -> Method: Structured Cards + Energy Driver Badges -> Interaction: Dynamic progress tracker.
-        - Master Weekly Rhythm -> Goal: Organize -> Method: HTML/CSS Responsive Grid Matrix -> Interaction: Category legend highlights.
-        - 6-Week Execution Plan -> Goal: Action/Track -> Method: Interactive Table with Status Checkboxes & Module Badges -> Interaction: Dynamic filtering, search bar, progress updates saved to localStorage + JSON Sync.
-        - Visual Timeline -> Goal: Change/Overlaps -> Method: Custom HTML/CSS Responsive Gantt Chart (NO SVG/Mermaid) -> Interaction: Milestone highlight, week filter.
-        - Quantitative Allocation -> Goal: Compare -> Method: Chart.js Bar Chart & Donut Chart in constrained divs -> Interaction: Hover tooltips, legend toggle.
-        - Google Calendar Bridge -> Goal: Action/Export -> Method: ICS Export + Copyable Google Apps Script Code Modal -> Interaction: Automatic event colorizer script.
-        - AI Guided Practice -> Goal: Enable/Teach -> Method: Prompt Templating Cards + Copyable Code Blocks -> Interaction: Quick-copy prompts for Gemini/NotebookLM.
-        - Burnout Risk -> Goal: Diagnose/Protect -> Method: Interactive Diagnostic Checklist & Cutting Order Accordion -> Interaction: Interactive scoring meter.
-        - Constraint Verification -> Goal: Validate -> Method: Searchable Verification Table -> Interaction: Status filters (✓ verified).
-    -->
-
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
-    <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -120,15 +87,17 @@
                     <a href="#execution-plan" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">6-Week Plan</a>
                     <a href="#gantt-chart" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Gantt Timeline</a>
                     <a href="#analytics" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Analytics</a>
-                    <a href="#gcal-import" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">GCal Sync & Colorizer</a>
-                    <a href="#ai-practice" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">AI Study Setup</a>
+                    <a href="#gcal-import" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">GCal Sync</a>
+                    <a href="#ai-practice" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">AI Setup</a>
                     <a href="#burnout" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Burnout Shield</a>
                     <a href="#audit" class="px-2.5 py-1.5 rounded-lg hover:bg-stone-100 hover:text-indigo-600 transition">Audit</a>
                 </nav>
                 <div class="flex items-center space-x-2">
-                    <button onclick="exportProgressJSON()" class="px-2.5 py-1.5 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg border border-indigo-200 transition">
-                        📲 Sync Mobile State
-                    </button>
+                    <!-- Cloud Sync Status Indicator -->
+                    <div id="sync-status" class="px-2.5 py-1.5 text-xs font-semibold bg-amber-50 text-amber-600 rounded-lg border border-amber-200 flex items-center space-x-1">
+                        <svg class="animate-spin h-3 w-3 mr-1" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                        <span>Connecting Cloud...</span>
+                    </div>
                     <button onclick="window.print()" class="px-2.5 py-1.5 text-xs font-semibold bg-stone-100 hover:bg-stone-200 text-slate-700 rounded-lg border border-stone-300 transition">
                         🖨️ Print Plan
                     </button>
@@ -137,7 +106,6 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT CONTAINER -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
 
         <!-- SECTION 1: STRATEGY & EXECUTIVE SUMMARY -->
@@ -645,7 +613,7 @@
             </div>
         </section>
 
-        <!-- SECTION 6: GOOGLE CALENDAR BRIDGE, ICAL SYNC & APPS SCRIPT COLORIZER -->
+        <!-- SECTION 6: GOOGLE CALENDAR BRIDGE & COLORIZER -->
         <section id="gcal-import" class="space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
@@ -653,10 +621,10 @@
                     <p class="text-sm text-slate-500">Google Calendar forces all imported `.ics` files to default blue. Use the One-Click Script below to colorize events instantly!</p>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="downloadICS('all')" class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5">
+                    <button onclick="window.downloadICS('all')" class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5">
                         <span>📅 Export Master .ICS</span>
                     </button>
-                    <button onclick="toggleColorizerModal()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5">
+                    <button onclick="window.toggleColorizerModal()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5">
                         <span>🎨 Auto-Colorizer Script</span>
                     </button>
                 </div>
@@ -669,42 +637,42 @@
                         <div class="text-xs font-bold text-red-900">Marketing</div>
                         <div class="text-[10px] text-red-700">🔴 Tomato (Color 11)</div>
                     </div>
-                    <button onclick="downloadICS('Marketing')" class="text-[10px] font-bold bg-white text-red-700 px-2 py-1 rounded border border-red-300 shadow-xs hover:bg-red-100">ICS</button>
+                    <button onclick="window.downloadICS('Marketing')" class="text-[10px] font-bold bg-white text-red-700 px-2 py-1 rounded border border-red-300 shadow-xs hover:bg-red-100">ICS</button>
                 </div>
                 <div class="p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-between">
                     <div>
                         <div class="text-xs font-bold text-blue-900">Data Analytics</div>
                         <div class="text-[10px] text-blue-700">🔵 Blueberry (Color 9)</div>
                     </div>
-                    <button onclick="downloadICS('Data Analytics')" class="text-[10px] font-bold bg-white text-blue-700 px-2 py-1 rounded border border-blue-300 shadow-xs hover:bg-blue-100">ICS</button>
+                    <button onclick="window.downloadICS('Data Analytics')" class="text-[10px] font-bold bg-white text-blue-700 px-2 py-1 rounded border border-blue-300 shadow-xs hover:bg-blue-100">ICS</button>
                 </div>
                 <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
                     <div>
                         <div class="text-xs font-bold text-emerald-900">Macroeconomics</div>
                         <div class="text-[10px] text-emerald-700">🟢 Basil (Color 10)</div>
                     </div>
-                    <button onclick="downloadICS('Macroeconomics')" class="text-[10px] font-bold bg-white text-emerald-700 px-2 py-1 rounded border border-emerald-300 shadow-xs hover:bg-emerald-100">ICS</button>
+                    <button onclick="window.downloadICS('Macroeconomics')" class="text-[10px] font-bold bg-white text-emerald-700 px-2 py-1 rounded border border-emerald-300 shadow-xs hover:bg-emerald-100">ICS</button>
                 </div>
                 <div class="p-3 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-between">
                     <div>
                         <div class="text-xs font-bold text-orange-900">Group Project</div>
                         <div class="text-[10px] text-orange-700">🟠 Tangerine (Color 6)</div>
                     </div>
-                    <button onclick="downloadICS('Group Project')" class="text-[10px] font-bold bg-white text-orange-700 px-2 py-1 rounded border border-orange-300 shadow-xs hover:bg-orange-100">ICS</button>
+                    <button onclick="window.downloadICS('Group Project')" class="text-[10px] font-bold bg-white text-orange-700 px-2 py-1 rounded border border-orange-300 shadow-xs hover:bg-orange-100">ICS</button>
                 </div>
                 <div class="p-3 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-between">
                     <div>
                         <div class="text-xs font-bold text-purple-900">Cello Practice</div>
                         <div class="text-[10px] text-purple-700">🟣 Grape (Color 3)</div>
                     </div>
-                    <button onclick="downloadICS('Buffer')" class="text-[10px] font-bold bg-white text-purple-700 px-2 py-1 rounded border border-purple-300 shadow-xs hover:bg-purple-100">ICS</button>
+                    <button onclick="window.downloadICS('Buffer')" class="text-[10px] font-bold bg-white text-purple-700 px-2 py-1 rounded border border-purple-300 shadow-xs hover:bg-purple-100">ICS</button>
                 </div>
                 <div class="p-3 rounded-xl bg-pink-50 border border-pink-200 flex items-center justify-between">
                     <div>
                         <div class="text-xs font-bold text-pink-900">Social Recovery</div>
                         <div class="text-[10px] text-pink-700">🦩 Flamingo (Color 4)</div>
                     </div>
-                    <button onclick="showToast('Social recovery blocks are integrated into Friday evening schedules.')" class="text-[10px] font-bold bg-white text-pink-700 px-2 py-1 rounded border border-pink-300 shadow-xs hover:bg-pink-100">Info</button>
+                    <button onclick="window.showToast('Social recovery blocks are integrated into Friday evening schedules.')" class="text-[10px] font-bold bg-white text-pink-700 px-2 py-1 rounded border border-pink-300 shadow-xs hover:bg-pink-100">Info</button>
                 </div>
             </div>
 
@@ -758,13 +726,13 @@
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
                     <div class="flex items-center space-x-2">
                         <span class="text-xl">🤖</span>
-                        <h3 class="text-sm font-bold text-slate-900">Data Analytics Problem Set Generator (Google Gemini / NotebookLM)</h3>
+                        <h3 class="text-sm font-bold text-slate-900">Data Analytics Problem Set Generator</h3>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
                         When official practice problem sets run out during your library blocks, copy and paste this optimized prompt into Google Gemini or NotebookLM along with your lecture slide PDF:
                     </p>
                     <div class="bg-stone-900 text-stone-100 p-4 rounded-xl text-xs font-mono relative overflow-x-auto">
-                        <button onclick="copyPrompt()" class="absolute top-2 right-2 bg-stone-700 hover:bg-stone-600 text-white text-[10px] px-2 py-1 rounded border border-stone-500 transition">
+                        <button onclick="window.copyPrompt()" class="absolute top-2 right-2 bg-stone-700 hover:bg-stone-600 text-white text-[10px] px-2 py-1 rounded border border-stone-500 transition">
                             📋 Copy Prompt
                         </button>
                         <p id="gemini-prompt-text">
@@ -812,7 +780,7 @@
                     
                     <div class="space-y-3 text-xs">
                         <label class="flex items-start space-x-3 p-3 rounded-xl bg-stone-50 border border-stone-200 cursor-pointer hover:bg-stone-100">
-                            <input type="checkbox" onchange="updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
+                            <input type="checkbox" onchange="window.updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
                             <div>
                                 <span class="font-bold text-slate-800 block">1. Metacognitive Calibration Crisis</span>
                                 <span class="text-slate-500">Inability to judge task readiness; unexpected low scores on practice items after high perceived confidence.</span>
@@ -820,7 +788,7 @@
                         </label>
 
                         <label class="flex items-start space-x-3 p-3 rounded-xl bg-stone-50 border border-stone-200 cursor-pointer hover:bg-stone-100">
-                            <input type="checkbox" onchange="updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
+                            <input type="checkbox" onchange="window.updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
                             <div>
                                 <span class="font-bold text-slate-800 block">2. Ultradian Fragmentation</span>
                                 <span class="text-slate-500">Inability to focus for 20 minutes without phone checking; severe dopamine depletion.</span>
@@ -828,7 +796,7 @@
                         </label>
 
                         <label class="flex items-start space-x-3 p-3 rounded-xl bg-stone-50 border border-stone-200 cursor-pointer hover:bg-stone-100">
-                            <input type="checkbox" onchange="updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
+                            <input type="checkbox" onchange="window.updateBurnoutScore()" class="burnout-check rounded border-stone-300 text-indigo-600 mt-0.5">
                             <div>
                                 <span class="font-bold text-slate-800 block">3. Sleep Architecture Collapse</span>
                                 <span class="text-slate-500">Sleep latency >30 minutes or waking unrefreshed despite 8h in bed due to elevated evening cortisol.</span>
@@ -974,7 +942,7 @@
                     <span>🎨</span>
                     <span>Google Apps Script Auto-Colorizer</span>
                 </h3>
-                <button onclick="toggleColorizerModal()" class="text-slate-400 hover:text-slate-600 text-lg font-bold">&times;</button>
+                <button onclick="window.toggleColorizerModal()" class="text-slate-400 hover:text-slate-600 text-lg font-bold">&times;</button>
             </div>
             <p class="text-xs text-slate-600 leading-relaxed">
                 Since Google Calendar forces imported ICS events to default blue, run this 10-second script in your Google Account to automatically recolor all events across all 6 weeks:
@@ -984,7 +952,7 @@
                 <li>Paste the script below, replace the placeholder text, and click <strong>Run</strong>.</li>
             </ol>
             <div class="bg-stone-900 text-stone-100 p-4 rounded-xl text-xs font-mono relative overflow-x-auto max-h-60">
-                <button onclick="copyAppsScript()" class="absolute top-2 right-2 bg-stone-700 hover:bg-stone-600 text-white text-[10px] px-2.5 py-1 rounded border border-stone-500 transition">
+                <button onclick="window.copyAppsScript()" class="absolute top-2 right-2 bg-stone-700 hover:bg-stone-600 text-white text-[10px] px-2.5 py-1 rounded border border-stone-500 transition">
                     📋 Copy Script
                 </button>
                 <pre id="apps-script-code">
@@ -1014,7 +982,7 @@ function colorizeAcademicCalendar() {
                 </pre>
             </div>
             <div class="flex justify-end pt-2">
-                <button onclick="toggleColorizerModal()" class="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-slate-700 text-xs font-semibold rounded-lg">Close</button>
+                <button onclick="window.toggleColorizerModal()" class="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-slate-700 text-xs font-semibold rounded-lg">Close</button>
             </div>
         </div>
     </div>
@@ -1028,7 +996,28 @@ function colorizeAcademicCalendar() {
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables for environment injection
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'gpc26-academic-plan';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' 
+            ? JSON.parse(__firebase_config) 
+            : {
+                // FALLBACK FOR GITHUB PAGES: Paste your Firebase config object here!
+                apiKey: "YOUR_API_KEY",
+                authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+                projectId: "YOUR_PROJECT_ID",
+                storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+                messagingSenderId: "123456789",
+                appId: "1:123456789:web:abcdef123456"
+            };
+
+        let app, db, auth, userRef;
+        let isSyncing = false;
+
         const studyBlocksData = [
             // WEEK 1
             { id: 1, week: 1, day: 'Monday', date: 'Oct 12', time: '20:00-23:00', module: 'Marketing', outcome: 'Synthesize lecture notes & extract 5 key academic frameworks for essay thesis.' },
@@ -1101,6 +1090,63 @@ function colorizeAcademicCalendar() {
 
         let completedTasks = JSON.parse(localStorage.getItem('academic_completed_tasks')) || [];
 
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+        } catch (e) {
+            console.error("Firebase init skipped (Invalid Config). Falling back to pure local mode.");
+        }
+
+        async function initializeCloudSync() {
+            const statusEl = document.getElementById('sync-status');
+            if (!auth || !db) {
+                statusEl.innerHTML = `<span>Local Mode Only</span>`;
+                statusEl.className = "px-2.5 py-1.5 text-xs font-semibold bg-stone-100 text-stone-600 rounded-lg border border-stone-200 flex items-center";
+                return;
+            }
+
+            try {
+                const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+                if (token) {
+                    await signInWithCustomToken(auth, token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Authentication failed:", error);
+                statusEl.innerHTML = `<span>Sync Error</span>`;
+                statusEl.className = "px-2.5 py-1.5 text-xs font-semibold bg-red-50 text-red-600 rounded-lg border border-red-200 flex items-center";
+            }
+        }
+
+        if (typeof onAuthStateChanged === 'function' && auth) {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    const statusEl = document.getElementById('sync-status');
+                    statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span><span>Cloud Synced</span>`;
+                    statusEl.className = "px-2.5 py-1.5 text-xs font-semibold bg-emerald-50 text-emerald-700 rounded-lg border border-emerald-200 flex items-center";
+
+                    // Strict secure pathing: artifacts/{appId}/users/{userId}/tasks/completed
+                    userRef = doc(db, 'artifacts', appId, 'users', user.uid, 'tasks', 'completed');
+                    
+                    onSnapshot(userRef, (snapshot) => {
+                        if (snapshot.exists()) {
+                            // Sync from cloud directly into local state
+                            completedTasks = snapshot.data().completedTasks || [];
+                            localStorage.setItem('academic_completed_tasks', JSON.stringify(completedTasks));
+                        } else {
+                            // Initialize document if it doesn't exist
+                            setDoc(userRef, { completedTasks: completedTasks }, { merge: true });
+                        }
+                        renderExecutionTable();
+                    }, (error) => {
+                        console.error("Snapshot error:", error);
+                    });
+                }
+            });
+        }
+
         function renderExecutionTable() {
             const tableBody = document.getElementById('execution-table-body');
             const weekFilter = document.getElementById('week-filter').value;
@@ -1130,7 +1176,7 @@ function colorizeAcademicCalendar() {
                 tr.className = `hover:bg-stone-50 transition ${isChecked ? 'bg-emerald-50/40 text-slate-400 line-through' : ''}`;
                 tr.innerHTML = `
                     <td class="p-3 text-center">
-                        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleTask(${block.id})" class="w-4 h-4 rounded border-stone-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+                        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="window.toggleTask(${block.id})" class="w-4 h-4 rounded border-stone-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
                     </td>
                     <td class="p-3 font-bold text-slate-700">W${block.week}</td>
                     <td class="p-3 font-semibold text-slate-800">${block.day} <span class="text-[10px] text-slate-400 block font-normal">${block.date}</span></td>
@@ -1146,14 +1192,26 @@ function colorizeAcademicCalendar() {
             updateProgressTracker();
         }
 
-        function toggleTask(id) {
+        async function toggleTask(id) {
             if (completedTasks.includes(id)) {
                 completedTasks = completedTasks.filter(taskId => taskId !== id);
             } else {
                 completedTasks.push(id);
             }
+            
+            // Fast local update
             localStorage.setItem('academic_completed_tasks', JSON.stringify(completedTasks));
             renderExecutionTable();
+
+            // Push to Firebase instantly
+            if (userRef && db) {
+                try {
+                    await setDoc(userRef, { completedTasks: completedTasks }, { merge: true });
+                } catch (error) {
+                    console.error("Error saving task to cloud:", error);
+                    showToast("Error saving to cloud. State saved locally.");
+                }
+            }
         }
 
         function updateProgressTracker() {
@@ -1164,16 +1222,6 @@ function colorizeAcademicCalendar() {
             document.getElementById('completed-count').innerText = `${count} / ${total}`;
             document.getElementById('completion-percentage').innerText = `${percentage}%`;
             document.getElementById('completion-bar').style.width = `${percentage}%`;
-        }
-
-        function exportProgressJSON() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(completedTasks));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", "academic_progress_backup.json");
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
         }
 
         function initCharts() {
@@ -1334,6 +1382,16 @@ function colorizeAcademicCalendar() {
             document.body.removeChild(link);
         }
 
+        // Export inline-HTML referenced functions to global window scope 
+        // (necessary because type="module" limits variables to script scope)
+        window.toggleTask = toggleTask;
+        window.copyPrompt = copyPrompt;
+        window.copyAppsScript = copyAppsScript;
+        window.toggleColorizerModal = toggleColorizerModal;
+        window.downloadICS = downloadICS;
+        window.updateBurnoutScore = updateBurnoutScore;
+        window.showToast = showToast;
+
         document.getElementById('week-filter').addEventListener('change', renderExecutionTable);
         document.getElementById('module-filter').addEventListener('change', renderExecutionTable);
         document.getElementById('search-input').addEventListener('input', renderExecutionTable);
@@ -1341,6 +1399,7 @@ function colorizeAcademicCalendar() {
         window.addEventListener('DOMContentLoaded', () => {
             renderExecutionTable();
             initCharts();
+            initializeCloudSync();
         });
     </script>
 </body>
