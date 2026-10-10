@@ -989,7 +989,7 @@
                 </button>
                 <pre id="apps-script-code">
 function colorizeAcademicCalendar() {
-  var cal = CalendarApp.getDefaultCalendar(); // or CalendarApp.getCalendarById("your_email@gmail.com")
+  var cal = CalendarApp.getCalendarById("your_email@gmail.com"); 
   var startDate = new Date("2026-10-12");
   var endDate = new Date("2026-11-23");
   var events = cal.getEvents(startDate, endDate);
@@ -997,19 +997,20 @@ function colorizeAcademicCalendar() {
   events.forEach(function(e) {
     var title = e.getTitle();
     if (title.indexOf("[Marketing]") !== -1) {
-      e.setColor(CalendarApp.EventColor.TOMATO); // Red (11)
+      e.setColor(CalendarApp.EventColor.RED); // Tomato (11)
     } else if (title.indexOf("[Data Analytics]") !== -1) {
-      e.setColor(CalendarApp.EventColor.BLUEBERRY); // Blue (9)
+      e.setColor(CalendarApp.EventColor.BLUE); // Blueberry (9)
     } else if (title.indexOf("[Macroeconomics]") !== -1) {
-      e.setColor(CalendarApp.EventColor.BASIL); // Green (10)
+      e.setColor(CalendarApp.EventColor.GREEN); // Basil (10)
     } else if (title.indexOf("[Group Project]") !== -1) {
-      e.setColor(CalendarApp.EventColor.TANGERINE); // Orange (6)
+      e.setColor(CalendarApp.EventColor.ORANGE); // Tangerine (6)
     } else if (title.indexOf("[Buffer]") !== -1) {
-      e.setColor(CalendarApp.EventColor.GRAPE); // Purple (3)
+      e.setColor(CalendarApp.EventColor.MAUVE); // Grape (3)
     }
   });
   Logger.log("Successfully recolored " + events.length + " events!");
 }
+             
                 </pre>
             </div>
             <div class="flex justify-end pt-2">
